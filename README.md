@@ -4,6 +4,13 @@ Some scripts for testing
 
 # Commands used on
 
+Create and image for proyect
+
+```
+    -- To create image first
+    docker build -t sandbox/frontend .
+```
+
 ```
     docker-compose build
 
@@ -27,4 +34,13 @@ CONTAINER ID   IMAGE      COMMAND                  CREATED              STATUS  
 
     docker-compose stop
 
+```
+
+# Frontend
+
+Create and image for proyect
+
+```
+    -- To create image first
+    docker build -t sandbox/frontend .
 ```
