@@ -1,0 +1,33 @@
+services:
+  client:
+    container_name: client_frontend
+    restart: always
+    build: 
+      context: ./client
+      target: development
+      dockerfile: /Users/eddy/Workspaces/docker-sandbox/fullstack/client/Dockerfile
+    ports:
+      - "3000:3000"
+    links:
+      - app
+  app:
+    container_name: app
+    restart: always
+    build: 
+      context: ./api
+      target: development
+      dockerfile: /Users/eddy/Workspaces/docker-sandbox/fullstack/api/Dockerfile
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    expose:
+      - "27017"
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
