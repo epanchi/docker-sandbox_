@@ -27,5 +27,5 @@ Learning curve:
 
 # terminnal
 
-- docker-compose buil
+- docker-compose build
 - docker-compose up -d --build (works)

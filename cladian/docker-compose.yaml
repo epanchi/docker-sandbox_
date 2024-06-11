@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  # First container
+  storefront:
+  # root directory
+    build: 
+      context: .
+      args:
+        - region=us-east-1
+        - alice = 0
+    environment:
+    # parameters as variables
+      - runtime_env=dev
+  database:
+  # Image alreardy available we dont need to create it, just use
+    image: "mysql"
+    env_file:
+      - ./mysql/env_file
+    volumes:
+      # Default path on server
+      # and non default storage sended to server
+      # source:target:accesmode
+      - ./mysql:/docker-entrypoint-initdb.d:ro
+      - kineteco:/var/lib/mysql
+
+volumes:
+  kineteco: 
